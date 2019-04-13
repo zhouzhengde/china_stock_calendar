@@ -1,9 +1,7 @@
 from datetime import time
 from pytz import timezone
-from trading_calendars import TradingCalendar
-from pandas.tseries.holiday import (
-    Holiday
-)
+from zipline.utils.calendars import TradingCalendar
+from pandas.tseries.holiday import Holiday
 from trading_calendars.trading_calendar import HolidayCalendar
 
 Holiday_20150101 = Holiday("Holiday_20150101", month=1, day=1, year=2015)
@@ -82,22 +80,22 @@ Holiday_20190207 = Holiday("Holiday_20190207", month=2, day=7, year=2019)
 Holiday_20190208 = Holiday("Holiday_20190208", month=2, day=8, year=2019)
 Holiday_20190405 = Holiday("Holiday_20190405", month=4, day=5, year=2019)
 
+
 class SHSZCalendar(TradingCalendar):
+    open_times = (
+        (None, time(0)),
+    )
+    close_times = (
+        (None, time(23, 59)),
+    )
+
     @property
     def name(self):
-        return "SH"
+        return "SHSZ"
 
     @property
     def tz(self):
         return timezone("Asia/Shanghai")
-
-    @property
-    def open_time(self):
-        return time(9, 30)
-
-    @property
-    def close_time(self):
-        return time(15)
 
     @property
     def regular_holidays(self):
@@ -176,8 +174,9 @@ class SHSZCalendar(TradingCalendar):
             Holiday_20190206,
             Holiday_20190207,
             Holiday_20190208,
-            Holiday_20190405,
+            Holiday_20190405
         ])
+
 
 if __name__ == '__main__':
     SHSZCalendar()
