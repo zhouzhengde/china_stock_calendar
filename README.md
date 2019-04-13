@@ -1,4 +1,9 @@
 # china_stock_calendar
+### Env Info
+- zipline : 1.3.0
+- trading_calendars : 1.7.0
+- python: 2.7
+
 
 ### How to use
 - config csv data, copy data file to /Users/[Your home]/[data folder]/zipline-data-bundle/daily
