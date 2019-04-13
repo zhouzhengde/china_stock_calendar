@@ -16,7 +16,7 @@ setup(
     url="https://github.com/zhouzhengde/china_stock_calendar.git",
 
     package_data={
-        '': ['*.txt'],
+        '': ['*.csv'],
     },
     entry_points={
         'console_scripts': [
